@@ -1,0 +1,15 @@
+site_name: C-Protocol Reference Repository
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - C-Protocol Overview: c-protocol-overview.md
+  - /drop API Endpoints: drop-api-endpoints.md
+  - GitHub Pages Setup: github-pages-setup.md
+
+plugins:
+  - search
+
+repo_url: https://github.com/username/c-protocol-reference

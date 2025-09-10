@@ -1,0 +1,820 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../drop-api-endpoints/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>C-Protocol Overview - C-Protocol Reference Repository</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#covenant-protocol-c-protocol-specification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="C-Protocol Reference Repository" class="md-header__button md-logo" aria-label="C-Protocol Reference Repository" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            C-Protocol Reference Repository
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              C-Protocol Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/username/c-protocol-reference" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="C-Protocol Reference Repository" class="md-nav__button md-logo" aria-label="C-Protocol Reference Repository" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    C-Protocol Reference Repository
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/username/c-protocol-reference" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    C-Protocol Overview
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    C-Protocol Overview
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Information
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-core-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction &amp; Core Principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introduction & Core Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Motivation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-core-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. Core Principles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-architecture-implementation-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Architecture &amp; Implementation Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Architecture & Implementation Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-custody-redemption-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Custody &amp; Redemption Models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Core Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Core Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-proof-authorities-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Proof Authorities (PAs)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-the-covenant-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. The Covenant Contract
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. The Covenant Contract">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-expressive-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1. Expressive Conditions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-verifiable-claims-canonical-obligations" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Verifiable Claims (Canonical Obligations)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-protocol-flow-reserve-offer-claim-settle" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Protocol Flow: Reserve → Offer → Claim → Settle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-privacy-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Privacy Measures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Security Considerations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../drop-api-endpoints/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    /drop API Endpoints
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Information
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-core-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction &amp; Core Principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introduction & Core Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Motivation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-core-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. Core Principles
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-architecture-implementation-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Architecture &amp; Implementation Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Architecture & Implementation Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-custody-redemption-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Custody &amp; Redemption Models
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Core Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Core Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-proof-authorities-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Proof Authorities (PAs)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-the-covenant-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. The Covenant Contract
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. The Covenant Contract">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-expressive-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1. Expressive Conditions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-verifiable-claims-canonical-obligations" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Verifiable Claims (Canonical Obligations)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-protocol-flow-reserve-offer-claim-settle" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Protocol Flow: Reserve → Offer → Claim → Settle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-privacy-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Privacy Measures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Security Considerations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="covenant-protocol-c-protocol-specification">Covenant Protocol (C-Protocol) Specification</h1>
+<h2 id="version-information">Version Information</h2>
+<ul>
+<li><strong>Version</strong>: 0.4.0-draft</li>
+<li><strong>Status</strong>: Working Draft</li>
+<li><strong>Date</strong>: September 10, 2025</li>
+</ul>
+<h2 id="abstract">Abstract</h2>
+<p>The Covenant Protocol (C-Protocol) is a universal, platform-agnostic meta-protocol for creating and exchanging verifiable claim tokens that bind digital assets to specific conditions. It leverages the Bitcoin ledger as a truth layer for on-demand settlement, while prioritizing privacy through off-chain negotiation. By combining Party-Defined Proofs from context-specific Proof Authorities with expressive, on-chain covenants, C-Protocol creates a secure bridge between real-world agreements and on-chain state transitions, enabling a peer-to-peer economy of high-trust, programmable value.</p>
+<h2 id="1-introduction-core-principles">1. Introduction &amp; Core Principles</h2>
+<h3 id="11-motivation">1.1. Motivation</h3>
+<p>A significant gap exists in reliably connecting on-chain agreements to off-chain performance and conditions in a private, peer-to-peer manner. C-Protocol is designed to bridge this gap by providing a framework for creating verifiable, transferable claims on assets, where settlement is a final, optional step rather than a prerequisite for exchange.</p>
+<h3 id="12-core-principles">1.2. Core Principles</h3>
+<ol>
+<li>
+<p><strong>Party-Defined Proofs &amp; Conditions</strong>: The protocol's integrity rests on conditions and authorities chosen by the covenanting parties. This includes the ability to designate ephemeral, context-specific Proof Authorities (PAs)—such as an event organizer trusted to verify attendance—making the protocol highly adaptable to real-world, time-sensitive agreements.</p>
+</li>
+<li>
+<p><strong>Immutable, On-Demand Settlement</strong>: Covenants are Bitcoin Script programs. Their rules are enforced by the Bitcoin mining network, providing finality when settlement is requested. The protocol treats on-chain settlement as a final state transition, not a requirement for every interaction.</p>
+</li>
+<li>
+<p><strong>Privacy Through Off-Chain Negotiation</strong>: The exchange of claims and the verification of conditions happen primarily on private, peer-to-peer channels. Only final settlement transactions are broadcast to the public ledger, minimizing the on-chain footprint.</p>
+</li>
+<li>
+<p><strong>Composable &amp; Peer-to-Peer</strong>: The protocol is designed for an ecosystem where any peer can be an issuer, holder, or verifier. It extends robust protocols like CAT to allow attested assets to be integrated into a wider ecosystem of decentralized applications.</p>
+</li>
+</ol>
+<h2 id="2-architecture-implementation-patterns">2. Architecture &amp; Implementation Patterns</h2>
+<p>C-Protocol is a layered architecture that supports multiple trust and custody models, allowing developers to choose the right trade-offs for their application.</p>
+<ul>
+<li><strong>Layer 1: Truth Layer (Bitcoin Protocol)</strong>: The ultimate settlement and state machine.</li>
+<li><strong>Layer 2: Logic Layer (Bitcoin Script / nPrint)</strong>: The enforcement engine for on-chain settlement.</li>
+<li><strong>Layer 3: Asset Layer (CAT Protocol)</strong>: The standard for representing assets governed by covenants.</li>
+<li><strong>Layer 4: Attestation &amp; Custody Layer</strong>: A flexible layer of entities and models for managing assets and verifying proofs.</li>
+<li><strong>Layer 5: Origination &amp; Negotiation Layer</strong>: Where actions occur and claims are exchanged peer-to-peer.</li>
+</ul>
+<h3 id="21-custody-redemption-models">2.1. Custody &amp; Redemption Models</h3>
+<p>Peers can implement C-Protocol using various models, ranked by decentralization:
+1. <strong>Simple Server-Mediated</strong>: A single custodian holds assets in escrow.
+2. <strong>Federated Threshold Custody</strong>: An M-of-N quorum of peers manages a threshold wallet.
+3. <strong>State/Payment Channels</strong>: Parties update asset states off-chain with signed messages.
+4. <strong>Atomic Conditional Releases (Script-based)</strong>: Primitives like Adaptor Signatures or HTLCs tie asset release atomically to the revelation of a secret.</p>
+<h2 id="3-core-components">3. Core Components</h2>
+<h3 id="31-proof-authorities-pas">3.1. Proof Authorities (PAs)</h3>
+<p>A Proof Authority is any entity—an individual, organization, automated sensor, or software program—that is designated by the covenanting parties to attest to the state of the real world for the purposes of their agreement. The protocol is unopinionated about who can be a PA; the trust is entirely defined by the participants.</p>
+<ul>
+<li><strong>Context-Specific</strong>: A PA's authority is typically limited to a specific domain. For example, a shipping company's API may be a PA for "proof of delivery," but not for "proof of identity."</li>
+<li><strong>Ephemeral</strong>: A PA's authority can be time-bound. For a beach cleanup, the organizer acts as a PA whose ability to issue valid attendance proofs is only active during the event. This allows for the creation of dynamic, temporary trust relationships that expire safely.</li>
+</ul>
+<h3 id="32-the-covenant-contract">3.2. The Covenant Contract</h3>
+<p>A UTXO controlled by a Bitcoin Script program. The script defines the programmable conditions for spending the UTXO.</p>
+<h4 id="321-expressive-conditions">3.2.1. Expressive Conditions</h4>
+<p>Covenants can implement a rich predicate language for defining unlock conditions. This logic is enforced by the custody model or directly in Bitcoin Script. Examples include:
+- <strong>holder_sig</strong>: Requires a valid signature from the claim's holder.
+- <strong>reveal:hash(H)</strong>: Requires the holder to reveal a secret pre-image x such that SHA256(x) == H.
+- <strong>time_lock:T</strong>: The claim is only redeemable after a specific time or block height T.
+- <strong>multi_sig:[pubA, pubB]</strong>: Requires signatures from multiple specified parties.
+- <strong>pa_attested:verify_sig(PA_PubKey, proof_data)</strong>: Requires a valid signature from a designated Proof Authority over specific proof data (e.g., attendance stats).</p>
+<h3 id="33-verifiable-claims-canonical-obligations">3.3. Verifiable Claims (Canonical Obligations)</h3>
+<p>The core transferable object in the C-Protocol ecosystem is the Canonical Obligation, a signed data structure representing an offer or a finalized receipt. This object is what peers trade.</p>
+<pre><code>{
+  &quot;type&quot;: &quot;offer&quot; | &quot;receipt&quot;,
+  &quot;id&quot;: &quot;unique_obligation_id&quot;,
+  &quot;issuer_pub&quot;: &quot;public_key_of_issuer&quot;,
+  &quot;holder_pub&quot;: &quot;public_key_of_current_holder&quot;,
+  &quot;token_info&quot;: { &quot;chain&quot;: &quot;BSV&quot;, &quot;assetId&quot;: &quot;...&quot;, &quot;amount&quot;: 10000 },
+  &quot;condition_expr&quot;: &quot;pa_attested:verify_sig(02a4..., 'cleanup_stats')&quot;,
+  &quot;expiry&quot;: 1757283600,
+  &quot;nonce&quot;: &quot;random_bytes&quot;,
+  &quot;signatures&quot;: [ &quot;signature_from_issuer&quot; ]
+}
+</code></pre>
+<p>This structure allows a claim on an asset to be securely and verifiably transferred between parties off-chain.</p>
+<h2 id="4-protocol-flow-reserve-offer-claim-settle">4. Protocol Flow: Reserve → Offer → Claim → Settle</h2>
+<ol>
+<li><strong>Reserve</strong>: An Issuer locks an asset using one of the chosen custody models.</li>
+<li><strong>Offer</strong>: The Issuer creates a signed Canonical Obligation of type offer, specifying the conditions for redemption, including any required PA.</li>
+<li><strong>Claim</strong>: A Holder receives the offer. To claim it, they fulfill the condition_expr (e.g., by obtaining a signed attestation from the designated Proof Authority for their cleanup stats) and present this proof to the responsible custody peer(s).</li>
+<li><strong>Settle</strong>: The custody layer verifies the claim and the PA's attestation. Upon success, it either updates its internal off-chain ledger or, if requested, executes the final on-chain settlement.</li>
+</ol>
+<h2 id="5-privacy-measures">5. Privacy Measures</h2>
+<ul>
+<li><strong>Off-Chain First</strong>: All negotiation, offers, and claims are exchanged on private, encrypted peer-to-peer channels.</li>
+<li><strong>On-Demand Settlement</strong>: The public blockchain is only used for final settlement.</li>
+<li><strong>Ephemeral Identifiers &amp; Address Rotation</strong>: Peers should use short-lived identifiers and rotate addresses.</li>
+<li><strong>Batching &amp; Merkle Anchoring</strong>: For public verifiability, peers can periodically anchor a single Merkle root of many off-chain obligations to the blockchain.</li>
+</ul>
+<h2 id="6-security-considerations">6. Security Considerations</h2>
+<ul>
+<li><strong>L1 Double-Spend Risk</strong>: Each peer should run a lightweight watcher node that monitors the L1 backing UTXOs. If a backing asset is spent, all dependent off-chain obligations must be revoked.</li>
+<li><strong>Issuer Repudiation</strong>: Holders can require offers to be co-signed by a trusted quorum or demand a non-custodial, script-based model.</li>
+<li><strong>Claim Replay Attacks</strong>: Claims must be made single-use through the use of nonces.</li>
+<li><strong>Peer Collusion / Eclipse Attacks</strong>: Clients should connect to a diverse set of independent peer nodes and watchers.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
