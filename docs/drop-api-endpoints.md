@@ -88,7 +88,7 @@ Constructs and broadcasts the transaction to unlock the covenant using the requi
 **Request Body**:
 ```
 {
-  "dropId": "d-93ff8c-...",
+  "dropId": "d-937ff8c-...",
   "recipientAddress": "1...",
   "proof": {
     "type": "secret",
